@@ -543,7 +543,7 @@ section {
     letter-spacing: -.02em;
     color: var(--white);
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 58px;
 }
 
 .skills-notes {
@@ -684,6 +684,19 @@ section {
     letter-spacing: .02em;
     line-height: 1;
     margin-bottom: 10px;
+}
+
+.tl-school a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tl-school a:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    text-decoration: underline;
 }
 
 .tl-detail {
@@ -866,8 +879,9 @@ footer {
 }
 
 .gallery-title {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
     letter-spacing: .14em;
     text-transform: uppercase;
 }
@@ -931,8 +945,10 @@ footer {
 
 .photo-slider .photo-card figcaption {
     padding: 10px 12px;
-    font: 10px "DM Mono", monospace;
+    font-size: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: .08em;
+    color: #000000;
 }
 
 .reveal {
@@ -1682,45 +1698,82 @@ footer {
     }
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.language-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.language-toggle:hover {
+    background: #fff;
+    color: #080808;
+    border-color: #fff;
+}
+
+@media (max-width: 600px) {
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-links {
+        flex: 1;
+    }
+
+    .language-toggle {
+        flex-shrink: 0;
+    }
+}
+
+a.textLink,
+a.textLink:visited,
+a.textLink:hover,
+a.textLink:active,
+a.textLink:focus {
+    color: #ffc5c5;
+}
     </style>
 </head>
 <body>
 <body>
  <!-- Navigation -->
  <nav>
-  <a class="nav-logo" href="#hero">
-   NATNAEL
-  </a>
-  <div class="nav-right">
-   <ul class="nav-links">
-    <li>
-     <a href="#about">
-      À propos
-     </a>
-    </li>
-    <li>
-     <a href="#skills">
-      Compétences
-     </a>
-    </li>
-    <li>
-     <a href="#projects">
-      Projets
-     </a>
-    </li>
-    <li>
-     <a href="#parcours">
-      Parcours
-     </a>
-    </li>
-    <li>
-     <a href="#contact">
-      Contact
-     </a>
-    </li>
-   </ul>
-  </div>
- </nav>
+    <a class="nav-logo" href="#hero">NATNAEL</a>
+
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+            <li><a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+            <li><a href="#projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+            <li><a href="#parcours" data-fr="Parcours" data-en="Education">Parcours</a></li>
+            <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+
+        <button id="languageToggle" class="language-toggle" type="button">
+            EN
+        </button>
+    </div>
+</nav>
  <!-- Accueil et lecteur audio -->
  <section id="hero">
   <div class="hero-intro">
@@ -1791,7 +1844,7 @@ footer {
      </button>
      <div class="volume-area">
       <button aria-label="Couper le son" class="volume-icon" id="muteBtn" type="button">
-       ◖
+       🔉
       </button>
       <input aria-label="Volume" class="volume-slider" id="volumeSlider" max="1" min="0" step="0.01" type="range" value="0.8"/>
      </div>
@@ -1815,13 +1868,13 @@ footer {
    </div>
    <div class="about-editorial-copy">
     <p>
-     Je suis étudiant en BUT Informatique à l'IUT de Grenoble, avec un intérêt particulier pour le développement frontend et full-stack. J'aime passer d'une idée à une réalisation : imaginer une interface, réfléchir à son fonctionnement, puis trouver les solutions techniques pour lui donner vie.
+     Je suis étudiant en BUT Informatique à <a class="textLink" href="https://iut2.univ-grenoble-alpes.fr/">l'IUT2 de Grenoble</a> , avec un intérêt particulier pour le développement frontend et full-stack. J'aime passer d'une idée à une réalisation : imaginer, réfléchir, trouver des solutions techniques, etc.
     </p>
     <p>
-     Je garde aussi une vraie curiosité pour les sujets plus proches de la machine, comme les systèmes et la programmation bas niveau. En dehors de l'informatique, je m'intéresse au sport, aux voyages, à l'automobile et à la musique — autant de façons de rester curieux et de découvrir de nouvelles choses.
+     Je garde aussi une vraie curiosité pour les sujets plus proches de la machine, comme les systèmes et la programmation bas niveau. En dehors de l'informatique, je m'intéresse au sport, aux voyages, à l'automobile et à la musique ; je suis de nature curieuse, j'aime donc découvrir de nouvelles choses constament.
     </p>
     <p class="about-editorial-closing">
-     Mon objectif : continuer à apprendre et participer à la création de projets utiles, bien pensés et soignés.
+     Mon objectif actuel : continuer à apprendre et participer à la création de projets qui me font vibrer.
     </p>
    </div>
   </div>
@@ -1843,7 +1896,7 @@ footer {
     <figure class="photo-card">
      <img alt="Image de galerie 1" loading="lazy" src="image.jpg"/>
      <figcaption>
-      Image 01
+      blabla
      </figcaption>
     </figure>
     <figure class="photo-card">
@@ -2003,7 +2056,7 @@ footer {
     </span>
     <div class="proj-card-content">
      <span class="proj-name">
-      Réalisation d'un chatbot
+      Réaliser un chatbot
      </span>
      <span class="proj-card-keyword">
       Java
@@ -2016,7 +2069,7 @@ footer {
     </span>
     <div class="proj-card-content">
      <span class="proj-name">
-      Guide d'installation d'un poste de développement
+      Guider l'installation d'un poste de développement
      </span>
      <span class="proj-card-keyword">
       Linux
@@ -2029,7 +2082,7 @@ footer {
     </span>
     <div class="proj-card-content">
      <span class="proj-name">
-      Installation d'une machine virtuelle
+      Installer une machine virtuelle
      </span>
      <span class="proj-card-keyword">
       Linux
@@ -2042,7 +2095,7 @@ footer {
     </span>
     <div class="proj-card-content">
      <span class="proj-name">
-      Jeu de casse-briques
+      Coder un jeu de casse-briques
      </span>
      <span class="proj-card-keyword">
       Assembleur x86
@@ -2054,9 +2107,7 @@ footer {
  <!-- Parcours — sans animation au survol -->
  <section id="parcours">
   <div class="skills-title reveal">
-   MON
-   <br/>
-   PARCOURS
+   MON <br>PARCOURS
   </div>
   <div class="tl reveal">
    <div class="tl-item">
@@ -2064,7 +2115,7 @@ footer {
      2024 — Maintenant
     </div>
     <div class="tl-school">
-     BUT Info — IUT Grenoble
+     <a href="https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/but-bachelor-universitaire-de-technologie-BUT/but-informatique-grenoble-KI4UEV4Y.html"> BUT Info — IUT Grenoble </a>
     </div>
     <div class="tl-detail">
      Développement logiciel, réseaux, bases de données, systèmes d'exploitation, et programmation assembleur 68000 sur Sega MegaDrive.
@@ -2077,8 +2128,8 @@ footer {
     <div class="tl-year">
      2021 — 2024
     </div>
-    <div class="tl-school">
-     Lycée Sainte Cécile
+    <div class="tl-school">  
+     <a href="https://www.institution-saint-francois.fr/index.php/lycee/presentation">Lycée Sainte Cécile</a>
     </div>
     <div class="tl-detail">
      Bac général — spécialité NSI. Stage en entreprise : création d'une interface web dynamique.
@@ -2091,8 +2142,8 @@ footer {
     <div class="tl-year">
      2017 — 2021
     </div>
-    <div class="tl-school">
-     Collège Saint François
+    <div class="tl-school"> 
+     <a href="https://www.institution-saint-francois.fr/">Collège Saint François</a>
     </div>
     <div class="tl-detail">
      Formation générale — premiers contacts avec l'informatique et la logique de programmation.
@@ -2202,14 +2253,14 @@ const tracks = [
     label: 'images/vinyl-label.jpg'
   },
   {
-    title: 'Tryna Get Down - INSTRUMENTAL',
+    title: 'Tryna Get Down - Instrumental',
     artist: 'Playboi Carti',
     src: 'audio/Playboi Carti - Tryna Get Down INSTRUMENTAL.mp3',
     cover: 'images/album-cover.png',
     label: 'images/vinyl-label2.jpg'
   },
   {
-    title: 'Whole Lotta Red - INSTRUMENTAL',
+    title: 'Whole Lotta Red - Instrumental',
     artist: 'Playboi Carti',
     src: 'audio/Playboi Carti - Whole Lotta Red INSTRUMENTAL.mp3',
     cover: 'images/album-cover.png',
@@ -2323,15 +2374,15 @@ progressBar.addEventListener('input', () => {
 volumeSlider.addEventListener('input', () => {
   audio.volume = Number(volumeSlider.value);
   audio.muted = audio.volume === 0;
-  muteBtn.textContent = audio.muted ? '×' : '◖';
+  muteBtn.textContent = audio.muted ? '🔇' : '🔉';
 });
 muteBtn.addEventListener('click', () => {
   audio.muted = !audio.muted;
-  muteBtn.textContent = audio.muted ? '×' : '◖';
+  muteBtn.textContent = audio.muted ? '🔇' : '🔉';
 });
 audio.addEventListener('volumechange', () => {
   if (!audio.muted) volumeSlider.value = audio.volume;
-  muteBtn.textContent = audio.muted ? '×' : '◖';
+  muteBtn.textContent = audio.muted ? '🔇' : '🔉';
 });
 
 /* Inclinaison 3D de la pochette. */
@@ -2382,7 +2433,7 @@ requestAnimationFrame(updatePhotoControls);
 /* Contenu des fenêtres de projets. */
 const projects = {
   "001": {
-    title: "Réalisation d'un chatbot",
+    title: "Réaliser un chatbot",
     images: [
       { src: "chatbot01.png", caption: "Interaction avec le chatbot" },
       { src: "chatbot02.png", caption: "Exemple d'apprentissage" }
@@ -2399,7 +2450,7 @@ const projects = {
     tech: ["Programmer un projet complexe", "Java", "Algorithmes"]
   },
   "002": {
-    title: "Guide d'installation d'un poste de développement",
+    title: "Guider l'installation d'un poste de développement",
     images: [],
     desc: "Réalisation d'un poste de développement Debian avec vérification d'intégrité de l'image ISO, installation complète du système, configuration de sudo, gestion des paquets Debian, puis installation des outils de développement (Git, JDK, IntelliJ IDEA).",
     features: [
@@ -2413,7 +2464,7 @@ const projects = {
     projectButtonLabel: "Voir le guide"
   },
   "003": {
-    title: "Installation d'une machine virtuelle",
+    title: "Installer une d'une machine virtuelle",
     images: [
       { src: "vm01.png", caption: "Installation d'IntelliJ avec Snap" },
       { src: "vm02.png", caption: "Espace disque utilisé et disponible" },
@@ -2433,7 +2484,7 @@ const projects = {
     projectButtonLabel2: "Voir la carte mentale"
   },
   "004": {
-    title: "Jeu de casse-briques",
+    title: "Coder un jeu de casse-briques",
     images: [
       { src: "asm01.png", caption: "Environnement Exodus avec registres/mémoire" },
       { src: "asm02.png", caption: "Balle en collision avec une brique" },
@@ -2562,6 +2613,73 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(element => obs.observe(element));
+
+/* Traduction français / anglais */
+const languageToggle = document.getElementById('languageToggle');
+
+let currentLanguage = 'fr';
+
+const translations = {
+    fr: {
+        hero: 'NATNAEL MEHARY FULL-STACK DEV',
+        cv: 'Mon CV',
+        about: 'QUI SUIS-JE ?',
+        skills: 'MES COMPÉTENCES',
+        projects: 'MES PROJETS',
+        journey: 'MON PARCOURS',
+        contact: 'ME CONTACTER',
+        send: 'Envoyer →'
+    },
+    en: {
+        hero: 'NATNAEL MEHARY FULL-STACK DEV',
+        cv: 'My Resume',
+        about: 'WHO AM I?',
+        skills: 'MY SKILLS',
+        projects: 'MY PROJECTS',
+        journey: 'MY JOURNEY',
+        contact: 'CONTACT ME',
+        send: 'Send →'
+    }
+};
+
+function translatePage(language) {
+    currentLanguage = language;
+
+    document.documentElement.lang = language;
+    languageToggle.textContent = language === 'fr' ? 'EN' : 'FR';
+
+    // Navigation
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.textContent = link.dataset[language];
+    });
+
+    // Boutons principaux
+    document.querySelector('.hero-action.primary').textContent =
+        translations[language].cv;
+
+    document.querySelector('.about-editorial-title').innerHTML =
+        language === 'fr' ? 'QUI<br>SUIS-JE ?' : 'WHO<br>AM I?';
+
+    document.querySelector('.skills-title').textContent =
+        translations[language].skills;
+
+    document.querySelector('#projects .proj-big-title').textContent =
+        translations[language].projects;
+
+    document.querySelector('#parcours .skills-title').innerHTML =
+        language === 'fr' ? 'MON<br>PARCOURS' : 'MY<br>JOURNEY';
+
+    document.querySelector('.contact-big').textContent =
+        translations[language].contact;
+
+    document.querySelector('.btn-send').textContent =
+        translations[language].send;
+}
+
+languageToggle.addEventListener('click', () => {
+    translatePage(currentLanguage === 'fr' ? 'en' : 'fr');
+});
+
 </script>
 </body>
 </html>
