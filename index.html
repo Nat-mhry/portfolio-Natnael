@@ -3283,7 +3283,8 @@
                 downloadedRender: {
                     day: "images/blender/m3pink1.png",
                     night: "images/blender/m3pink2.png",
-                    description: "Ces rendus et de nombreux autres avaient été créés pendant la création d'une page html concept de promotion de la marque Adro pour le bodykit 'V2' de la BMW M4 G82."
+                    description: "Ces rendus et de nombreux autres avaient été créés pendant la création d'une page html concept de promotion de la marque Adro pour le bodykit 'V2' de la BMW M4 G82.",
+                    siteUrl: "https://nat-mhry.github.io/Adro-Blender-website-concept/#top"
                 }
             },
             "008": {title: "Créer un concept de site promotionnel", 
@@ -3295,7 +3296,8 @@
             {src: "images-projets/adro-photo-irl.jpg", caption: "Exemple du body-kit en personne"}], 
             features: ["Rendus 3D réalisés sur le logiciel Blender a l'aide d'un model téléchargé","Développement d'un site web crédible est capable de promouvoir un produit"], 
             skills: ["Modélisation 3D", "Développement Web"], 
-            tech: ["Blender","HTML", "CSS", "JS"]},
+            tech: ["Blender","HTML", "CSS", "JS"],
+            primaryLinks: [{url: "https://nat-mhry.github.io/Adro-Blender-website-concept/#top", label: "Voir le site promotionnel Adro"}]},
         };
 
         /* Lecteur audio */
@@ -3366,7 +3368,7 @@
 
         function renderDownloadedModel(project) {
             const render = project.downloadedRender || {};
-            return `<section class="blender-section blender-section--downloaded"><div class="blender-section-head blender-section-head--single"><div><h3 class="blender-section-title">Rendus de modèles téléchargés pour des projets personnels</h3></div></div><div class="blender-download-layout"><div class="blender-daynight-frame" id="blenderDayNightFrame"><span class="blender-render-placeholder">APERÇU DU RENDU — JOUR / NUIT</span><img class="blender-daynight-image is-active" id="blenderRenderDay" src="${escapeHtml(render.day || "")}" alt="Rendu du modèle avec éclairage de jour" loading="lazy" onerror="this.hidden=true"><img class="blender-daynight-image" id="blenderRenderNight" src="${escapeHtml(render.night || "")}" alt="Rendu du même modèle avec éclairage de nuit" loading="lazy" onerror="this.hidden=true"></div><div class="blender-download-copy"><p>${escapeHtml(render.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}</p></div></div></section>`;
+            return `<section class="blender-section blender-section--downloaded"><div class="blender-section-head blender-section-head--single"><div><h3 class="blender-section-title">Rendus de modèles téléchargés pour des projets personnels</h3></div></div><div class="blender-download-layout"><div class="blender-daynight-frame" id="blenderDayNightFrame"><span class="blender-render-placeholder">APERÇU DU RENDU — JOUR / NUIT</span><img class="blender-daynight-image is-active" id="blenderRenderDay" src="${escapeHtml(render.day || "")}" alt="Rendu du modèle avec éclairage de jour" loading="lazy" onerror="this.hidden=true"><img class="blender-daynight-image" id="blenderRenderNight" src="${escapeHtml(render.night || "")}" alt="Rendu du même modèle avec éclairage de nuit" loading="lazy" onerror="this.hidden=true"></div><div class="blender-download-copy"><p>${escapeHtml(render.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}</p>${render.siteUrl ? renderLinks([{url: render.siteUrl, label: "Voir le site concept Adro"}]) : ""}</div></div></section>`;
         }
 
         function renderBlenderProject(project) {
