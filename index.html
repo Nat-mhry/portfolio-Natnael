@@ -569,8 +569,11 @@
 
         .gallery-controls {
             display: flex;
-            gap: 9px;
-            margin-left: 20px
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            margin: 12px auto 0;
         }
 
         .gallery-control {
@@ -607,7 +610,7 @@
             min-width: 0;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 28px 16px 42px;
+            padding: 28px 16px 26px;
             perspective: 1400px;
             scroll-snap-type: x mandatory;
             scroll-padding-inline: 16px;
@@ -973,6 +976,15 @@
         .tl-item {
             position: relative;
             margin-bottom: 48px
+        }
+
+        /* Apparition progressive des étapes du parcours */
+        .timeline .tl-item:nth-child(2) {
+            transition-delay: .12s;
+        }
+
+        .timeline .tl-item:nth-child(3) {
+            transition-delay: .24s;
         }
 
         .tl-item:last-child {
@@ -2035,14 +2047,18 @@
                 font-size: 25px;
             }
 
-            .gallery-title,
-            .gallery-controls {
+            .gallery-title {
                 margin-left: 5px
             }
 
             .photo-slider {
                 gap: 13px;
-                padding: 30px 38px 40px
+                padding: 30px 38px 24px
+            }
+
+            .gallery-controls {
+                gap: 12px;
+                margin: 10px auto 0;
             }
 
             .photo-card {
@@ -2374,6 +2390,10 @@
             color: #aaa;
             font-size: 16px;
             line-height: 1.85
+        }
+
+        .blender-download-copy .project-link-btn {
+            margin-top: 20px;
         }
 
         .blender-lightbox-panel {
@@ -3072,11 +3092,8 @@
                 </div>
             </div>
             <div class="about-gallery reveal">
-                <div class="gallery-heading"><span class="gallery-title"><span class="gallery-emoji">🌐</span> Ma
-                        galerie personnelle</span>
-                    <div class="gallery-controls"><button aria-label="Photos précédentes" class="gallery-control"
-                            id="photoPrev" type="button">←</button><button aria-label="Photos suivantes"
-                            class="gallery-control" id="photoNext" type="button">→</button></div>
+                <div class="gallery-heading">
+                    <span class="gallery-title"><span class="gallery-emoji">🌐</span> Ma galerie personnelle</span>
                 </div>
                 <div class="photo-slider" id="photoSlider">
                     <figure class="photo-card"><img alt="Phuket, Thaïlande" loading="lazy"
@@ -3123,6 +3140,10 @@
                             src="images/holiday/holiday6.jpg">
                         <figcaption>Chutes du Niagara, Canada</figcaption>
                     </figure>
+                </div>
+                <div class="gallery-controls" aria-label="Navigation de la galerie">
+                    <button aria-label="Photos précédentes" class="gallery-control" id="photoPrev" type="button">←</button>
+                    <button aria-label="Photos suivantes" class="gallery-control" id="photoNext" type="button">→</button>
                 </div>
             </div>
         </section>
@@ -3226,16 +3247,15 @@
         </section>
         <section id="parcours">
             <h2 class="section-title reveal">MON<br>PARCOURS</h2>
-            <div class="timeline reveal">
-                <article class="tl-item">
+            <div class="timeline">
+                <article class="tl-item reveal">
                     <div class="tl-year">2024 — Maintenant</div>
                     <h3 class="tl-school"><a
                             href="https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/but-bachelor-universitaire-de-technologie-BUT/but-informatique-grenoble-KI4UEV4Y.html">BUT
                             Info UGA</a></h3>
-                    <p class="tl-detail">Développement logiciel, réseaux, bases de données, systèmes d'exploitation et
-                        programmation assembleur 68000 sur Sega MegaDrive.</p><span class="tl-badge">En cours</span>
+                    <p class="tl-detail">Réalisation d’applications - conception, développement, validation</p><span class="tl-badge">En cours</span>
                 </article>
-                <article class="tl-item">
+                <article class="tl-item reveal">
                     <div class="tl-year">2021 — 2024</div>
                     <h3 class="tl-school"><a
                             href="https://www.institution-saint-francois.fr/index.php/lycee/presentation">Lycée Sainte
@@ -3243,7 +3263,7 @@
                     <p class="tl-detail">Bac général — spécialité NSI. Stage en entreprise : création d'une interface
                         web dynamique.</p><span class="tl-badge">Bac général obtenu</span>
                 </article>
-                <article class="tl-item">
+                <article class="tl-item reveal">
                     <div class="tl-year">2017 — 2021</div>
                     <h3 class="tl-school"><a href="https://www.institution-saint-francois.fr/">Collège Saint
                             François</a></h3>
@@ -3389,7 +3409,8 @@
             {src: "images-projets/adro-photo-irl.jpg", caption: "Exemple du body-kit en personne"}], 
             features: ["Rendus 3D réalisés sur le logiciel Blender a l'aide d'un model téléchargé","Développement d'un site web crédible est capable de promouvoir un produit"], 
             skills: ["Modélisation 3D", "Développement Web"], 
-            tech: ["Blender","HTML", "CSS", "JS"]},
+            tech: ["Blender","HTML", "CSS", "JS"],
+            primaryLinks: [{url: "https://nat-mhry.github.io/Adro-Blender-website-concept/#top", label: "Visiter le site promotionnel Adro"}]},
         };
 
         /* Lecteur audio */
@@ -3460,7 +3481,7 @@
 
         function renderDownloadedModel(project) {
             const render = project.downloadedRender || {};
-            return `<section class="blender-section blender-section--downloaded"><div class="blender-section-head blender-section-head--single"><div><h3 class="blender-section-title">Rendus de modèles téléchargés pour des projets personnels</h3></div></div><div class="blender-download-layout"><div class="blender-daynight-frame" id="blenderDayNightFrame"><span class="blender-render-placeholder">APERÇU DU RENDU — JOUR / NUIT</span><img class="blender-daynight-image is-active" id="blenderRenderDay" src="${escapeHtml(render.day || "")}" alt="Rendu du modèle avec éclairage de jour" loading="lazy" onerror="this.hidden=true"><img class="blender-daynight-image" id="blenderRenderNight" src="${escapeHtml(render.night || "")}" alt="Rendu du même modèle avec éclairage de nuit" loading="lazy" onerror="this.hidden=true"></div><div class="blender-download-copy"><p>${escapeHtml(render.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}</p></div></div></section>`;
+            return `<section class="blender-section blender-section--downloaded"><div class="blender-section-head blender-section-head--single"><div><h3 class="blender-section-title">Rendus de modèles téléchargés pour des projets personnels</h3></div></div><div class="blender-download-layout"><div class="blender-daynight-frame" id="blenderDayNightFrame"><span class="blender-render-placeholder">APERÇU DU RENDU — JOUR / NUIT</span><img class="blender-daynight-image is-active" id="blenderRenderDay" src="${escapeHtml(render.day || "")}" alt="Rendu du modèle avec éclairage de jour" loading="lazy" onerror="this.hidden=true"><img class="blender-daynight-image" id="blenderRenderNight" src="${escapeHtml(render.night || "")}" alt="Rendu du même modèle avec éclairage de nuit" loading="lazy" onerror="this.hidden=true"></div><div class="blender-download-copy"><p>${escapeHtml(render.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.")}</p><a class="project-link-btn" href="https://nat-mhry.github.io/Adro-Blender-website-concept/#top" target="_blank" rel="noopener noreferrer">Visiter le site promotionnel Adro <span class="project-link-icon" aria-hidden="true">↗</span></a></div></div></section>`;
         }
 
         function renderBlenderProject(project) {
