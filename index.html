@@ -238,12 +238,33 @@
 
         .music-composition {
             position: relative;
+            isolation: isolate;
             z-index: 3;
             display: flex;
             flex: 0 1 390px;
             flex-direction: column;
             align-items: center;
             width: min(390px, 39%)
+        }
+
+        /* Halo ovale fixe : il reste immobile pendant l'effet 3D du vinyle. */
+        .music-composition::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: -30px;
+            left: 50%;
+            width: 245%;
+            height: 406px;
+            transform: translateX(-50%);
+            background-image: var(--hero-image);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .4;
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
+            mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
+            pointer-events: none
         }
 
         .artwork-stage {
@@ -255,26 +276,6 @@
             perspective: 1000px;
             transform-style: preserve-3d;
             transition: transform .18s ease-out
-        }
-
-        /* Halo ovale discret : l'image se révèle au centre puis s'efface vers le noir. */
-        .artwork-stage::before {
-            content: "";
-            position: absolute;
-            z-index: 0;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 200%;
-            transform: translate(-50%, -50%);
-            background-image: var(--hero-image);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            opacity: .28;
-            -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
-            mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
-            pointer-events: none
         }
 
         .player-vinyl {
