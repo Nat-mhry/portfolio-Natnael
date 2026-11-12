@@ -16,6 +16,8 @@
         rel="stylesheet">
     <style>
         :root {
+            /* Image utilisée pour le halo ovale derrière le vinyle. */
+            --hero-image: url("images/hero-background.jpg");
             --red: #b50916;
             --accent: #ed1c24;
             --black: #050505;
@@ -161,6 +163,7 @@
 
         #hero {
             position: relative;
+            isolation: isolate;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -168,8 +171,11 @@
             min-height: 100vh;
             padding: 150px 6% 105px;
             overflow: hidden;
-            background: radial-gradient(ellipse at 78% 48%, rgba(255, 0, 25, .2), transparent 40%), radial-gradient(ellipse at 10% 20%, rgba(120, 0, 10, .12), transparent 35%), #000
+            /* Le fond reste entièrement noir. L'image n'apparait que dans les masques ci-dessous. */
+            background: #000
         }
+
+        /* Le hero reste noir : l'image est ajoutée uniquement derrière le vinyle. */
 
         .hero-intro {
             position: relative;
@@ -249,6 +255,26 @@
             perspective: 1000px;
             transform-style: preserve-3d;
             transition: transform .18s ease-out
+        }
+
+        /* Halo ovale discret : l'image se révèle au centre puis s'efface vers le noir. */
+        .artwork-stage::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 200%;
+            transform: translate(-50%, -50%);
+            background-image: var(--hero-image);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: .28;
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
+            mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, .88) 38%, rgba(0, 0, 0, .42) 58%, transparent 78%);
+            pointer-events: none
         }
 
         .player-vinyl {
