@@ -967,16 +967,31 @@
 
         .proj-name {
             max-width: 100%;
-            color: #151515;
+            color: #601717;
             font: 650 clamp(20px, 2.2vw, 28px)/1.2 system-ui, sans-serif;
             letter-spacing: -.025em;
             text-wrap: balance
         }
 
-        .proj-card-keyword {
-            color: #777;
-            font: 500 20px/1.4 system-ui, sans-serif;
-            letter-spacing: .02em
+        .proj-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+            width: 100%;
+        }
+
+        .proj-card-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border: 1px solid #9353539d;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .82);
+            color: #935353;
+            font: 650 10px/1.2 system-ui, sans-serif;
+            letter-spacing: .045em;
+            white-space: nowrap;
         }
 
         #parcours {
@@ -1425,6 +1440,39 @@
             color: #dedede;
             font-size: clamp(17px, 1.35vw, 19px);
             line-height: 1.8
+        }
+
+        .github-repo-action {
+            margin: -10px 0 32px;
+        }
+
+        .github-repo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            padding: 12px 18px;
+            border: 1px solid #555;
+            border-radius: 999px;
+            background: #fff;
+            color: #111;
+            font: 700 14px/1.2 system-ui, sans-serif;
+            text-decoration: none;
+            transition: transform .2s, background .2s, color .2s, border-color .2s;
+        }
+
+        .github-repo-btn svg {
+            display: block;
+            flex: 0 0 21px;
+            width: 21px;
+            height: 21px;
+            fill: currentColor;
+        }
+
+        .github-repo-btn:hover {
+            transform: translateY(-2px);
+            border-color: #fff;
+            background: #24292f;
+            color: #fff;
         }
 
         .t-section-title {
@@ -3252,6 +3300,51 @@
                 </div>
             </div>
         </section>
+        
+        <section id="projects">
+            <h2 class="section-title reveal">MES PROJETS</h2>
+            <div class="proj-card-grid">
+                <div class="proj-item reveal" data-project="007" role="button" tabindex="0"
+                    style="--card-visual:url('images/blender-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Mes projets de modelisation 3D</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="008" role="button" tabindex="0"
+                    style="--card-visual:url('images/html-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Création d'un concept de site promotionnel</span>
+                        <div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="006" role="button" tabindex="0"
+                    style="--card-visual:url('images/eurekapp-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Réaliser une application de gestion
+                            événementielle (Eurêkapp)</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="001" role="button" tabindex="0"
+                    style="--card-visual:url('images/java-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Réaliser un chatbot intelligent de culture
+                            générale</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="004" role="button" tabindex="0"
+                    style="--card-visual:url('images/sega-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Coder un jeu de casse-briques sur Sega
+                            MegaDrive</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="005" role="button" tabindex="0"
+                    style="--card-visual:url('images/postgres-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Concevoir et implémenter <br>une base de
+                            données</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="002" role="button" tabindex="0"
+                    style="--card-visual:url('images/linux-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Guide d'installation d'un poste de
+                            développement</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+                <div class="proj-item reveal" data-project="003" role="button" tabindex="0"
+                    style="--card-visual:url('images/linux-red.svg')">
+                    <div class="proj-card-content"><span class="proj-name">Installer une machine virtuelle</span><div class="proj-card-tags" aria-label="Technologies utilisées"></div></div>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <h2 class="section-title reveal">MES COMPÉTENCES TECHNIQUES</h2>
             <div class="skills-notes reveal">
@@ -3305,51 +3398,7 @@
                 </div>
             </div>
         </section>
-        <section id="projects">
-            <h2 class="section-title reveal">MES PROJETS</h2>
-            <div class="proj-card-grid">
-                <div class="proj-item reveal" data-project="007" role="button" tabindex="0"
-                    style="--card-visual:url('images/blender-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Mes projets de modelisation 3D</span><span
-                            class="proj-card-keyword">Blender</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="008" role="button" tabindex="0"
-                    style="--card-visual:url('images/html-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Créer un concept de site promotionnel</span>
-                        <span class="proj-card-keyword">HTML, Blender</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="006" role="button" tabindex="0"
-                    style="--card-visual:url('images/eurekapp-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Réaliser une application de gestion
-                            événementielle (Eurêkapp)</span><span class="proj-card-keyword">Java</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="001" role="button" tabindex="0"
-                    style="--card-visual:url('images/java-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Réaliser un chatbot intelligent de culture
-                            générale</span><span class="proj-card-keyword">Java</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="004" role="button" tabindex="0"
-                    style="--card-visual:url('images/sega-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Coder un jeu de casse-briques sur Sega
-                            MegaDrive</span><span class="proj-card-keyword">Assembleur x86</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="005" role="button" tabindex="0"
-                    style="--card-visual:url('images/postgres-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Concevoir et implémenter <br>une base de
-                            données</span><span class="proj-card-keyword">PostgreSQL</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="002" role="button" tabindex="0"
-                    style="--card-visual:url('images/linux-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Guide d'installation d'un poste de
-                            développement</span><span class="proj-card-keyword">Linux</span></div>
-                </div>
-                <div class="proj-item reveal" data-project="003" role="button" tabindex="0"
-                    style="--card-visual:url('images/linux-red.svg')">
-                    <div class="proj-card-content"><span class="proj-name">Installer une machine virtuelle</span><span
-                            class="proj-card-keyword">Linux</span></div>
-                </div>
-            </div>
-        </section>
+
         <section id="parcours">
             <h2 class="section-title reveal">MON<br>PARCOURS</h2>
             <div class="timeline">
@@ -3474,10 +3523,11 @@
             "003": {title: "Installer une machine virtuelle", icon: "images/linux-red.svg", desc: "Projet centré sur l'installation et la configuration d'une machine virtuelle pour reproduire un environnement de travail isolé et réutilisable, documenté par une carte mentale détaillée.", images: [{src: "images-projets/vm01.png", caption: "Installation d'IntelliJ avec Snap"}, {src: "images-projets/vm02.png", caption: "Espace disque utilisé et disponible"}, {src: "images-projets/vm03.png", caption: "Ouverture d'un shell de connexion root"}, {src: "images-projets/vm04.png", caption: "Carte mentale documentant le projet"}], features: ["Création de la machine virtuelle", "Gestion du processeur, de la mémoire et du stockage", "Installation du système invité", "Validation du démarrage et de l'accès", "Environnement isolé pour les tests"], skills: ["Systèmes"], tech: ["VM", "Linux", "IntelliJ IDEA"], links: [{url: "https://www.mindmeister.com/app/map/3486180692", label: "Voir la carte mentale"}]},
             "004": {title: "Coder un jeu de casse-briques sur Sega MegaDrive", icon: "images/sega-red.svg", desc: "Projet de programmation bas niveau sur Sega MegaDrive en assembleur 68000 : génération d'un mur de briques, placement des coordonnées, contrôle de la raquette et gestion des collisions de la balle.", images: [{src: "images-projets/asm01.png", caption: "Environnement Exodus avec registres et mémoire"}, {src: "images-projets/asm02.png", caption: "Balle en collision avec une brique"}, {src: "images-projets/asm03.png", caption: "Raquette contrôlée avec la manette"}], features: ["Découverte de la console Sega MegaDrive, de l'émulateur Exodus et de la chaîne de compilation SGDK", "Génération d'un motif de couleurs pour un mur de briques", "Calcul des coordonnées de chaque brique", "Lecture des boutons du pad et limitation des déplacements", "Détection des collisions entre la balle et les briques", "Organisation du code en sous-programmes réutilisables"], skills: ["Développement", "Optimisation"], tech: ["Assembleur", "Sega MegaDrive", "Exodus", "SGDK"]},
             "005": {title: "Conceptualiser et implémenter une base de données", icon: "images/postgres-red.svg", desc: "Projet consistant à concevoir une base de données, la structurer puis l'exploiter à travers des requêtes SQL. Il s'agit d'une base de données pour un club de voile, comprenant des informations sur les membres, les bateaux, les compétitions et les résultats. Il a fallu implémenter les spécifications données en schéma relationnel et les tables nécessaires au bon fonctionnement de la base. Nous avons finalement peuplé la base avec des informations fictives afin de répondre aux énoncés.", images: [], features: ["Création de la base de données", "Transcription des spécifications d'un schéma relationnel", "Implémentation des tables", "Structuration des données", "Réalisation de requêtes"], skills: ["Gestion des données", "Optimisation"], tech: ["SQL", "PostgreSQL"]},
-            "006": {title: "Réaliser une application de gestion événementielle (Eurêkapp)", icon: "images/eurekapp-red.svg", desc: "Eurêkapp est une application de bureau développée en Java et JavaFX, destinée aux organisateurs d'événements de compétition d'invention. Elle centralise la gestion administrative, humaine et logistique des événements, tout en intégrant des outils de simulation financière. L'application permet notamment de gérer les équipes et le matériel, suivre les ventes et calculer le seuil de rentabilité d'un événement.", images: [{src: "images-projets/megasae-acceuil-app.png", caption: "Accueil de l'application, que j'ai été chargé de designer seul"}, {src: "images-projets/megasae-maquette.png", caption: "Une partie de la maquette réalisée durant la conception"}, {src: "images-projets/megasae-pitch-marketing.png", caption: "Affiche support du pitch marketing"}], features: ["Création, modification et consultation des compétitions", "Gestion de l'inventaire technique, du matériel et des équipes", "Simulateur financier permettant de calculer le seuil de rentabilité et le bénéfice prévisionnel", "Modélisation UML"], skills: ["Développement d'applications orientées objet", "Conception et architecture logicielle (MVC)", "Optimisation", "Gestion de projet en équipe"], tech: ["Java 17", "JavaFX", "FXML", "CSS", "MVC", "GitHub"], primaryLinks: [{url: "pdf-projets/sae-cadrage-du-projet.pdf", label: "Voir le cadrage du projet"}, {url: "pdf-projets/sae-dossier-ihm.pdf", label: "Voir le dossier IHM"}, {url: "pdf-projets/sae-conception-du-projet.pdf", label: "Voir la conception du projet"}, {url: "https://whimsical.com/maquettes-E51EcqNN8rqzCVorNrNmsZ", label: "Voir la maquette de l'application"}], annexLinks: [{url: "https://docs.google.com/videos/d/1Rv1WmNYXr_bup94keTP2ZY27amF-LUoHO9xBF04j-Ko/play", label: "Voir la vidéo du pitch en anglais"}]},
+            "006": {title: "Réaliser une application de gestion événementielle (Eurêkapp)", icon: "images/eurekapp-red.svg", desc: "Eurêkapp est une application de bureau développée en Java et JavaFX, destinée aux organisateurs d'événements de compétition d'invention. Elle centralise la gestion administrative, humaine et logistique des événements, tout en intégrant des outils de simulation financière. L'application permet notamment de gérer les équipes et le matériel, suivre les ventes et calculer le seuil de rentabilité d'un événement.", images: [{src: "images-projets/megasae-acceuil-app.png", caption: "Accueil de l'application, que j'ai été chargé de designer seul"}, {src: "images-projets/megasae-maquette.png", caption: "Une partie de la maquette réalisée durant la conception"}, {src: "images-projets/megasae-pitch-marketing.png", caption: "Affiche support du pitch marketing"}], features: ["Création, modification et consultation des compétitions", "Gestion de l'inventaire technique, du matériel et des équipes", "Simulateur financier permettant de calculer le seuil de rentabilité et le bénéfice prévisionnel", "Modélisation UML"], skills: ["Développement d'applications orientées objet", "Conception et architecture logicielle (MVC)", "Optimisation", "Gestion de projet en équipe"], tech: ["Java 17", "JavaFX", "FXML", "CSS", "MVC", "GitHub"], githubRepo: "https://github.com/Nat-mhry/Eurekapp", primaryLinks: [{url: "pdf-projets/sae-cadrage-du-projet.pdf", label: "Voir le cadrage du projet"}, {url: "pdf-projets/sae-dossier-ihm.pdf", label: "Voir le dossier IHM"}, {url: "pdf-projets/sae-conception-du-projet.pdf", label: "Voir la conception du projet"}, {url: "https://whimsical.com/maquettes-E51EcqNN8rqzCVorNrNmsZ", label: "Voir la maquette de l'application"}], annexLinks: [{url: "https://docs.google.com/videos/d/1Rv1WmNYXr_bup94keTP2ZY27amF-LUoHO9xBF04j-Ko/play", label: "Voir la vidéo du pitch en anglais"}]},
             "007": {
                 title: "Mes projets de modélisation 3D",
                 icon: "images/blender-red.svg",
+                tech: ["Blender"],
                 desc: "Voici quelque uns de mes projets réalisées avec Blender, entre modélisation d’objets, création de scènes et exploration de rendus.",
                 interfaceImages: [
                     "images/blender/Screenshot1.png",
@@ -3529,7 +3579,7 @@
                     description: "Ces rendus et de nombreux autres avaient été créés pendant la création d'une page html concept de promotion de la marque Adro pour le bodykit 'V2' de la BMW M4 G82."
                 }
             },
-            "008": {title: "Créer un concept de site promotionnel", 
+            "008": {title: "Création d'un concept de site promotionnel", 
             icon: "images/html-red.svg", 
             desc: "Projet personnel de création d'une page web promotionelle pour la marque Adro, spécialisé dans la conception et la fabrication de kits carrosserie et de composants aérodynamiques haut de gamme pour automobiles sportives. Le site web. La page web promeut un body-kit complet a installer sur la BMW M4 G82 (2021 ou plus récent). J'ai créé l'ensemble des images présentes sur le site web grace au logiciel Blender en utilisant un model 3d déja existants.", 
             images: [
@@ -3539,6 +3589,7 @@
             features: ["Rendus 3D réalisés sur le logiciel Blender a l'aide d'un model téléchargé","Développement d'un site web crédible est capable de promouvoir un produit"], 
             skills: ["Modélisation 3D", "Développement Web"], 
             tech: ["Blender","HTML", "CSS", "JS"],
+            githubRepo: "https://github.com/Nat-mhry/Adro-Blender-website-concept",
             primaryLinks: [{url: "https://nat-mhry.github.io/Adro-Blender-website-concept/#top", label: "Visiter le site promotionnel Adro"}]},
         };
 
@@ -3565,6 +3616,7 @@
         function changeImg(direction) {const images = tbody.querySelectorAll(".t-gallery-img"), dots = tbody.querySelectorAll(".t-gallery-dot"); if (!images.length || totalImgs < 1) return; images[currentIdx]?.classList.remove("active"); dots[currentIdx]?.classList.remove("active"); currentIdx = (currentIdx + totalImgs + direction) % totalImgs; images[currentIdx].classList.add("active"); dots[currentIdx]?.classList.add("active"); const counter = document.getElementById("galleryCounter"), caption = document.getElementById("galleryCaption"); if (counter) counter.textContent = `${currentIdx + 1} / ${totalImgs}`; if (caption) caption.textContent = images[currentIdx].dataset.caption || ""}
         function goToImg(index) {const diff = index - currentIdx; if (diff) changeImg(diff > 0 ? diff : totalImgs + diff)}
         function renderLinks(links) {if (!links || !links.length) return ""; return `<div class="project-links">${links.map(link => {const url = String(link.url || ""); const isPdf = /\.pdf(?:$|[?#])/i.test(url); const icon = isPdf ? "🗋" : "↗"; return `<div class="project-link-wrap"><a class="project-link-btn" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} <span class="project-link-icon" aria-hidden="true">${icon}</span></a></div>`}).join("")}</div>`}
+        function renderGithubRepoButton(project) {const url = String(project.githubRepo || ""); if (!url) return ""; const label = project.githubRepoLabel || "Voir le dépôt sur GitHub"; return `<div class="github-repo-action"><a class="github-repo-btn" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M12 .297c-6.627 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.467-1.333-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.903-.015 3.296 0 .319.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>${escapeHtml(label)}</span></a></div>`}
 
         /* Galeries Blender */
         const blenderLightbox = document.getElementById("blenderLightbox"),
@@ -3730,11 +3782,39 @@
             const project = projects[id]; if (!project) return; activeProjectId = id; currentIdx = 0; totalImgs = project.images?.length || 0;
             if (id === "007") {tbody.innerHTML = renderBlenderProject(project); initBlenderProject(); if (shouldScroll) tbody.scrollTop = 0; overlay.classList.add("open"); overlay.setAttribute("aria-hidden", "false"); document.body.classList.add("modal-open"); return }
             const hasProjectLinks = Boolean(project.primaryLinks?.length || project.annexLinks?.length || project.links?.length); const linksHtml = `${hasProjectLinks ? '<div class="t-links-divider" aria-hidden="true"></div>' : ""}${project.primaryLinks?.length ? `<h3 class="project-link-heading">Liens principaux</h3>${renderLinks(project.primaryLinks)}` : ""}${project.annexLinks?.length ? `<h3 class="project-link-heading">Liens annexes</h3>${renderLinks(project.annexLinks)}` : ""}${!project.primaryLinks?.length && !project.annexLinks?.length && project.links?.length ? renderLinks(project.links) : ""}`;
-            tbody.innerHTML = `<div class="t-project-hero"><div class="t-proj-heading"><img class="t-proj-icon" src="${escapeHtml(project.icon)}" alt="" aria-hidden="true"><h2 class="t-proj-title" id="modalProjectTitle">${escapeHtml(project.title)}</h2></div></div>${buildGallery(project.images)}<p class="t-proj-desc">${escapeHtml(project.desc)}</p><h3 class="t-section-title">Réalisations principales</h3><ul class="t-features">${project.features.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>${linksHtml}<h3 class="t-section-title">Compétences exercées</h3><div class="t-tech-row">${project.skills.map(item => `<span class="t-tech">${escapeHtml(item)}</span>`).join("")}</div><h3 class="t-section-title">Outils utilisés</h3><div class="t-tech-row">${project.tech.map(item => `<span class="t-tech">${escapeHtml(item)}</span>`).join("")}</div>`;
+            tbody.innerHTML = `<div class="t-project-hero"><div class="t-proj-heading"><img class="t-proj-icon" src="${escapeHtml(project.icon)}" alt="" aria-hidden="true"><h2 class="t-proj-title" id="modalProjectTitle">${escapeHtml(project.title)}</h2></div></div>${buildGallery(project.images)}<p class="t-proj-desc">${escapeHtml(project.desc)}</p>${renderGithubRepoButton(project)}<h3 class="t-section-title">Réalisations principales</h3><ul class="t-features">${project.features.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>${linksHtml}<h3 class="t-section-title">Compétences exercées</h3><div class="t-tech-row">${project.skills.map(item => `<span class="t-tech">${escapeHtml(item)}</span>`).join("")}</div><h3 class="t-section-title">Technologies utilisées</h3><div class="t-tech-row">${project.tech.map(item => `<span class="t-tech">${escapeHtml(item)}</span>`).join("")}</div>`;
             if (totalImgs > 1) {document.getElementById("galleryNext")?.addEventListener("click", () => changeImg(1)); document.getElementById("galleryPrev")?.addEventListener("click", () => changeImg(-1)); tbody.querySelectorAll(".t-gallery-dot").forEach(dot => dot.addEventListener("click", () => goToImg(Number(dot.dataset.dot))))} if (shouldScroll) tbody.scrollTop = 0; overlay.classList.add("open"); overlay.setAttribute("aria-hidden", "false"); document.body.classList.add("modal-open")
         }
         function closeTerminal() {stopBlenderRenderSlideshow(); closeBlenderLightbox(); overlay.classList.remove("open"); overlay.setAttribute("aria-hidden", "true"); document.body.classList.remove("modal-open"); activeProjectId = null}
-        document.querySelectorAll(".proj-item[data-project]").forEach(element => {const id = element.dataset.project, activate = () => openProject(id); element.setAttribute("aria-label", `Ouvrir le projet : ${projects[id].title}`); element.addEventListener("click", activate); element.addEventListener("keydown", event => {if (event.key === "Enter" || event.key === " ") {event.preventDefault(); activate()} })});
+        document.querySelectorAll(".proj-item[data-project]").forEach(element => {
+            const id = element.dataset.project;
+            const project = projects[id];
+            if (!project) return;
+
+            const title = element.querySelector(".proj-name");
+            if (title) title.textContent = project.title;
+
+            const tagsContainer = element.querySelector(".proj-card-tags");
+            const technologies = Array.isArray(project.tech) ? project.tech.slice(0, 3) : [];
+            if (tagsContainer && technologies.length) {
+                tagsContainer.innerHTML = technologies
+                    .map(technology => `<span class="proj-card-tag">${escapeHtml(technology)}</span>`)
+                    .join("");
+                tagsContainer.setAttribute("aria-label", `Technologies : ${technologies.join(", ")}`);
+            } else if (tagsContainer) {
+                tagsContainer.remove();
+            }
+
+            const activate = () => openProject(id);
+            element.setAttribute("aria-label", `Ouvrir le projet : ${project.title}`);
+            element.addEventListener("click", activate);
+            element.addEventListener("keydown", event => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    activate();
+                }
+            });
+        });
         blenderVariantToggle.addEventListener("click", () => {
             const enabled = blenderVariantToggle.getAttribute("aria-checked") !== "true";
             setBlenderVariant(enabled);
